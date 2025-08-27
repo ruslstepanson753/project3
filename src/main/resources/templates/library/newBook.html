@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+</head>
+<body>
+<div>Страница добавления книги</div>
+<br>
+<form th:method="POST" th:action="@{/books}" th:object="${book}">
+    <label for="name">Введите название книги: </label>
+    <input type="text" th:field="*{bookName}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">Name Error</div>
+    <br/>
+    <label for="author">Введите автора: </label>
+    <input type="text" th:field="*{author}" id="author"/>
+    <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
+    <br/>
+    <label for="year">Введите год: </label>
+    <input type="text" th:field="*{yearBook}" id="year"/>
+    <div style="color:red" th:if="${#fields.hasErrors('yearBook')}" th:errors="*{yearBook}">Year Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+<br>
+<a href="/">на главную </a>
+</body>
+</html>
