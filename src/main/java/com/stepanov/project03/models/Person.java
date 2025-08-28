@@ -19,6 +19,9 @@ public class Person {
     @Column
     private String password;
 
+    @Column
+    private String role;
+
     public Person() {
 
     }
@@ -26,6 +29,14 @@ public class Person {
     public Person(String username, int yearOfBirth) {
         this.username = username;
         this.yearOfBirth = yearOfBirth;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getId() {

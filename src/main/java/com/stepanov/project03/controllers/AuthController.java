@@ -5,6 +5,7 @@ import com.stepanov.project03.services.PersonDetailsService;
 import com.stepanov.project03.services.RegistrationService;
 import com.stepanov.project03.util.PersonValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,5 +46,10 @@ public class AuthController {
         }
         registrationService.register(person);
         return "redirect:/auth/login";
+    }
+
+    @GetMapping("/admin")
+    public String admin(Model model) {
+        return "auth/admin";
     }
 }
